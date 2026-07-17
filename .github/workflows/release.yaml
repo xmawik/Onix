@@ -23,7 +23,7 @@ jobs:
           VERSION: ${{ github.ref_name }}
         run: |
           BRANCH=release/${{ env.VERSION }}
-          git config --local user.email 'ci@pterodactyl.io'
+          git config --local user.email 'ci@onixmine.ru'
           git config --local user.name 'ONIX CI'
           git checkout -b "$BRANCH"
           git push -u origin "$BRANCH"

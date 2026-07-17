@@ -1,12 +1,12 @@
 {
-    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - onixmine.ru",
     "meta": {
         "version": "PTDL_v2",
         "update_url": null
     },
     "exported_at": "2023-01-28T00:52:56+01:00",
     "name": "Teamspeak3 Server",
-    "author": "support@pterodactyl.io",
+    "author": "support@onixmine.ru",
     "description": "VoIP software designed with security in mind, featuring crystal clear voice quality, endless customization options, and scalabilty up to thousands of simultaneous users.",
     "features": null,
     "docker_images": {

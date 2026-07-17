@@ -36,7 +36,7 @@
                                 <div>
                                     <div class="btn-group" data-toggle="buttons">
                                         @php
-                                            $level = old('pterodactyl:auth:2fa_required', config('pterodactyl.auth.2fa_required'));
+                                            $level = old('pterodactyl:auth:2fa_required', config(.pterodactyl.auth.2fa_required'));
                                         @endphp
                                         <label class="btn btn-primary @if ($level == 0) active @endif">
                                             <input type="radio" name="pterodactyl:auth:2fa_required" autocomplete="off" value="0" @if ($level == 0) checked @endif> Not Required

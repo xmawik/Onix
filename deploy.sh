@@ -23,7 +23,7 @@ abort() { err "$*"; exit 1; }
 [ "$(id -u)" -eq 0 ] || abort "Run this script as root (sudo bash deploy.sh)"
 
 # ---------- Config (with defaults / prompts) ----------
-PHP_VER="8.1"
+PHP_VER="8.2"
 DB_NAME="onix"
 DB_USER="onix"
 INSTALL_DIR="/var/www/onix"
@@ -65,6 +65,8 @@ npm install -g yarn
 
 info "Installing Composer..."
 curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+# Make sure CLI php is the one we installed
+update-alternatives --set php /usr/bin/php${PHP_VER} 2>/dev/null || true
 ok "Packages installed"
 
 # ---------- 2. Database ----------
@@ -117,6 +119,7 @@ set_env DB_PORT "3306"
 set_env DB_DATABASE "${DB_NAME}"
 set_env DB_USERNAME "${DB_USER}"
 set_env DB_PASSWORD "${DB_PASS}"
+set_env APP_THEME "pterodactyl"
 set_env APP_ANNOUNCEMENT "\"${APP_ANNOUNCEMENT}\""
 set_env APP_SUPPORT_URL "\"${APP_SUPPORT_URL}\""
 

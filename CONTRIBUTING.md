@@ -27,7 +27,7 @@ for information on how to report security issues to the team.
 
 You can find us in a couple places online. First and foremost, we're active right here on GitHub. If you encounter a
 bug or other problems, open an issue on here for us to take a look at it. Please make use of
-our [GitHub Discussions](https://github.com/orgs/pterodactyl/discussions/categories/feature-requests)
+our [GitHub Discussions](https://github.com/orgs/Onix/discussions/categories/feature-requests)
 for any feature requests, general questions, or help with the software.
 
-You can also find us on [Discord](https://discord.gg/pterodactyl).
+You can also find us on [Discord](https://discord.gg/Onix).

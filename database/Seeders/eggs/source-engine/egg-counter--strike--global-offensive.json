@@ -1,12 +1,12 @@
 {
-    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - onixmine.ru",
     "meta": {
         "version": "PTDL_v1",
         "update_url": null
     },
     "exported_at": "2022-01-18T07:01:54-05:00",
     "name": "Counter-Strike: Global Offensive",
-    "author": "support@pterodactyl.io",
+    "author": "support@onixmine.ru",
     "description": "Counter-Strike: Global Offensive is a multiplayer first-person shooter video game developed by Hidden Path Entertainment and Valve Corporation.",
     "features": [
         "gsl_token",

@@ -6,7 +6,7 @@ return [
     |--------------------------------------------------------------------------
     | Application Version
     |--------------------------------------------------------------------------
-    | This value is set when creating a Pterodactyl release. You should not
+    | This value is set when creating an Onix release. You should not
     | change this value if you are not maintaining your own internal versions.
     */
 
@@ -23,7 +23,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Pterodactyl'),
+    'name' => env('APP_NAME', 'Onix'),
 
     /*
     |--------------------------------------------------------------------------

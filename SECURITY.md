@@ -14,7 +14,7 @@ follow eachother.
 ## Reporting a Vulnerability
 
 Please use our GitHub Security reporting meachnism to quickly alert the team to any security issues you come across,
-or send an email to `security@pterodactyl.io` with the details of your report.
+or send an email to `security@onixmine.ru` with the details of your report.
 
 We make every effort to respond as soon as possible, although it may take a day or two for us to sync internally and
 determine the severity of the report and its impact. Please, _do not_ use a public facing channel or GitHub issues to

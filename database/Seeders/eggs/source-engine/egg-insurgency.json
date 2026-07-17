@@ -1,12 +1,12 @@
 {
-    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - onixmine.ru",
     "meta": {
         "version": "PTDL_v1",
         "update_url": null
     },
     "exported_at": "2022-01-18T07:07:27-05:00",
     "name": "Insurgency",
-    "author": "support@pterodactyl.io",
+    "author": "support@onixmine.ru",
     "description": "Take to the streets for intense close quarters combat, where a team's survival depends upon securing crucial strongholds and destroying enemy supply in this multiplayer and cooperative Source Engine based experience.",
     "features": [
         "steam_disk_space"

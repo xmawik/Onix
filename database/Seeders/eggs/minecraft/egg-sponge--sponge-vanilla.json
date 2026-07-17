@@ -1,12 +1,12 @@
 {
-    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - onixmine.ru",
     "meta": {
         "version": "PTDL_v2",
         "update_url": null
     },
     "exported_at": "2026-04-05T20:12:50+02:00",
     "name": "Sponge (SpongeVanilla)",
-    "author": "support@pterodactyl.io",
+    "author": "support@onixmine.ru",
     "description": "SpongeVanilla is the SpongeAPI implementation for Vanilla Minecraft.",
     "features": [
         "eula",

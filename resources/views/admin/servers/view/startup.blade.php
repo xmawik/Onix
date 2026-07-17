@@ -126,7 +126,7 @@
                 let opt = document.createElement('option');
                 opt.value = images[keys[i]];
                 opt.innerText = keys[i] + " (" + images[keys[i]] + ")";
-                if (objectChain.id === parseInt(Pterodactyl.server.egg_id) && Pterodactyl.server.image == opt.value) {
+                if (objectChain.id === parseInt(Onix.server.egg_id) && Onix.server.image == opt.value) {
                     opt.selected = true
                 }
                 $('#pDockerImage').append(opt);
@@ -135,9 +135,9 @@
                 $('#pDockerImageCustom').val('');
             })
 
-            if (objectChain.id === parseInt(Pterodactyl.server.egg_id)) {
-                if ($('#pDockerImage').val() != Pterodactyl.server.image) {
-                    $('#pDockerImageCustom').val(Pterodactyl.server.image);
+            if (objectChain.id === parseInt(Onix.server.egg_id)) {
+                if ($('#pDockerImage').val() != Onix.server.image) {
+                    $('#pDockerImageCustom').val(Onix.server.image);
                 }
             }
 
@@ -149,7 +149,7 @@
 
             $('#appendVariablesTo').html('');
             $.each(_.get(objectChain, 'variables', []), function (i, item) {
-                var setValue = _.get(Pterodactyl.server_variables, item.env_variable, item.default_value);
+                var setValue = _.get(Onix.server_variables, item.env_variable, item.default_value);
                 var isRequired = (item.required === 1) ? '<span class="label label-danger">Required</span> ' : '';
                 var dataAppend = ' \
                     <div class="col-xs-12"> \
@@ -181,8 +181,8 @@
                 }),
             });
 
-            if (_.isObject(_.get(Pterodactyl.nests, $(this).val() + '.eggs.' + Pterodactyl.server.egg_id))) {
-                $('#pEggId').val(Pterodactyl.server.egg_id);
+            if (_.isObject(_.get(Pterodactyl.nests, $(this).val() + '.eggs.' + Onix.server.egg_id))) {
+                $('#pEggId').val(Onix.server.egg_id);
             }
 
             $('#pEggId').change();
