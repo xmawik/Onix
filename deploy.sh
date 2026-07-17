@@ -84,19 +84,22 @@ mkdir -p "$(dirname "$INSTALL_DIR")"
 git clone "$REPO_URL" "$INSTALL_DIR"
 cd "$INSTALL_DIR"
 
+# ---------- 5. Environment (BEFORE composer, so post-install hooks have a key) ----------
+info "Writing .env and generating app key..."
+cp .env.example .env
+php artisan key:generate --force
+
 # ---------- 4. Dependencies & build ----------
 info "Installing PHP dependencies..."
 composer install --no-dev --optimize-autoloader
 
 info "Installing JS dependencies and building assets..."
+# public/assets does not exist in a fresh clone; create it so the 'clean'
+# step in build:production (which does 'cd public/assets') does not fail.
+mkdir -p public/assets
 yarn install
 yarn build:production
 ok "Build complete"
-
-# ---------- 5. Environment ----------
-info "Writing .env..."
-cp .env.example .env
-php artisan key:generate --force
 
 # Inject DB + custom settings into .env (idempotent)
 set_env() {
