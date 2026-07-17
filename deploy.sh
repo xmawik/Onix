@@ -82,8 +82,9 @@ ok "Database ready"
 # ---------- 3. Code ----------
 info "Preparing code in ${INSTALL_DIR}..."
 if [ -d "${INSTALL_DIR}/.git" ]; then
-    warn "${INSTALL_DIR} already exists — pulling latest changes instead of cloning"
+    warn "${INSTALL_DIR} already exists — resetting and pulling latest changes"
     cd "$INSTALL_DIR"
+    git checkout -f
     git pull --ff-only || git pull
 elif [ -d "$INSTALL_DIR" ]; then
     warn "${INSTALL_DIR} exists but is not a git repo — continuing in place"
@@ -94,17 +95,7 @@ else
     cd "$INSTALL_DIR"
 fi
 
-# ---------- 5. Environment (BEFORE composer, so post-install hooks have a key) ----------
-if [ -f .env ]; then
-    warn ".env already present — keeping it, only (re)generating app key if missing"
-    php artisan key:generate --force
-else
-    info "Writing .env and generating app key..."
-    cp .env.example .env
-    php artisan key:generate --force
-fi
-
-# ---------- 4. Dependencies & build ----------
+# ---------- 4. Dependencies & build (BEFORE artisan commands) ----------
 info "Installing PHP dependencies..."
 composer install --no-dev --optimize-autoloader
 
@@ -115,6 +106,15 @@ mkdir -p public/assets
 yarn install
 yarn build:production
 ok "Build complete"
+
+# ---------- 5. Environment ----------
+if [ -f .env ]; then
+    warn ".env already present — keeping it, only (re)generating app key if missing"
+else
+    info "Writing .env from example..."
+    cp .env.example .env
+fi
+php artisan key:generate --force
 
 # Inject DB + custom settings into .env (idempotent)
 set_env() {
