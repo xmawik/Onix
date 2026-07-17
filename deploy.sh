@@ -80,16 +80,29 @@ SQL
 ok "Database ready"
 
 # ---------- 3. Code ----------
-info "Cloning repository into ${INSTALL_DIR}..."
-[ -d "$INSTALL_DIR" ] && abort "${INSTALL_DIR} already exists"
-mkdir -p "$(dirname "$INSTALL_DIR")"
-git clone "$REPO_URL" "$INSTALL_DIR"
-cd "$INSTALL_DIR"
+info "Preparing code in ${INSTALL_DIR}..."
+if [ -d "${INSTALL_DIR}/.git" ]; then
+    warn "${INSTALL_DIR} already exists — pulling latest changes instead of cloning"
+    cd "$INSTALL_DIR"
+    git pull --ff-only || git pull
+elif [ -d "$INSTALL_DIR" ]; then
+    warn "${INSTALL_DIR} exists but is not a git repo — continuing in place"
+    cd "$INSTALL_DIR"
+else
+    mkdir -p "$(dirname "$INSTALL_DIR")"
+    git clone "$REPO_URL" "$INSTALL_DIR"
+    cd "$INSTALL_DIR"
+fi
 
 # ---------- 5. Environment (BEFORE composer, so post-install hooks have a key) ----------
-info "Writing .env and generating app key..."
-cp .env.example .env
-php artisan key:generate --force
+if [ -f .env ]; then
+    warn ".env already present — keeping it, only (re)generating app key if missing"
+    php artisan key:generate --force
+else
+    info "Writing .env and generating app key..."
+    cp .env.example .env
+    php artisan key:generate --force
+fi
 
 # ---------- 4. Dependencies & build ----------
 info "Installing PHP dependencies..."
